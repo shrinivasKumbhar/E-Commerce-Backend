@@ -15,4 +15,5 @@
  */
 
 *= require bootstrap.min
-*= require socialapp
+*= require style
+*= require font-awesome.min

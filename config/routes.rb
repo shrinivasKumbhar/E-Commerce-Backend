@@ -1,11 +1,32 @@
 Rails.application.routes.draw do
-  
-  root 'users#index'
+
+  root 'products#index'
   resources :users
-  resources :posts
-  post 'users/login'
-  post 'users/search_friend'
-  
+  resources :products
+  ActiveAdmin.routes(self)
+  scope '/api' do
+    scope '/v1' do
+      scope '/users' do
+        post '/login' => 'users#login'
+        post '/signup' => 'users#sign_up'
+		    post '/verify_otp' => 'users#verify_otp'
+      end
+      scope '/products' do
+        post '/save' => 'products#save'
+      end
+      scope '/carts' do
+        post '/add-to-cart' => 'carts#add_to_cart'
+        get '/get-users-cart/:user_id' => 'carts#get_users_cart'
+        put '/update' => 'carts#update_quantity'
+      end
+      scope 'product_images' do
+        post '/upload-image' => 'product_images#upload_image'
+      end
+      scope 'packages' do
+        get '/get-packages' => 'packages#get_all_packages'
+      end
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

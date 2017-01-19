@@ -1,0 +1,139 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HelloWorld
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#menuCollapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{:href => "#"}
+            %img{:src => "assets/logo.png"}/
+        #menuCollapse.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "#"}
+                HOME
+                %span.sr-only (current)
+            %li
+              %a{:href => "templates/aboutUs.html"} ABOUT US
+            %li
+              %a{:href => "templates/offers.html"} OFFERS
+            %li
+              %a{:href => "templates/deliveryPolicy.html"} DELIVERY POLICY
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+                CONTACT US
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "templates/termsAndConditions.html", :tabindex => "-1"} TERMS &amp; CONDITIONS
+                %li
+                  %a{:href => "templates/faq.html", :tabindex => "-1"}
+                    %i.fa.fa-question-circle-o>
+                      FAQ
+                %li
+                  %a{:href => "templates/contactUs.html", :tabindex => "-1"}
+                    %i.fa.fa-phone>
+                      CONTACT US
+            %li
+              %a{:"data-target" => "#loginModal", "data-toggle" => "modal"}
+                %span.user-login-menu.login-signup LOG IN
+                \/
+                %span.user-sign-up-menu.login-signup SIGN UP
+            %li
+              %a.user-logout-menu.hidden{:href => "#"} LOGOUT
+
+
+    = yield
+    #loginModal.modal.fade.bs-example-modal-sm.text-center.loginModal{"aria-labelledby" => "myModalLabel", "data-backdrop" => "static", "data-keyboard" => "false", :role => "dialog", :tabindex => "-1"}
+      / aria-hidden="true"
+      .modal-dialog
+        .modal-content
+          .modal-header
+            .row
+              .col-md-5
+                %span.glyphicon.pull-left.glyphicon-arrow-left.back-button{"aria-hidden" => "true", :style => "display:none;"}
+              .col-md-7
+                .form-group
+                  .row
+                    %b
+                      %span.col-sm-offset-1.login-div-show.user-login-menu.pull-left Log In
+                      %span.pull-left    
+                      %span.sign-up-div-show.user-sign-up-menu.pull-left Sign Up
+                    %button.close.pull-right{"data-dismiss" => "modal", :type => "button "} X
+          .modal-body
+            .row
+              .col-md-5
+                .row
+                  .col-md-12.title_message.text-left
+                    %b
+                      Sing up to get FRESH Vegetables.
+                      %br/
+                      %br/
+                      We do not share you personal Details
+                      with anyone.
+              .col-md-7{:style => "border-left: solid 1px #FF8C00;"}
+                .row.loginDiv
+                  %form.form-horizontal
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#username.form-control{:placeholder => "Username/Mobile Number", :type => "tel"}/
+                    .form-group
+                      / <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#password.form-control{:placeholder => "Password", :type => "password"}/
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %span.errorMessage
+                    .form-group
+                      .col-sm-offset-1.col-sm-10
+                        %button#user-login.btn.redButton.btn-block.user-login{:onclick => "loginValidation(this)", :type => "button"} Login
+                    .form-group
+                      .col-sm-offset-1.col-sm-10
+                        %a{:href => ""} Forgot Password?
+                .row.signUpDiv
+                  %form.form-horizontal
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#sign-up-mobile-number.form-control.sign-up-mobile-number{:placeholder => "Mobile Number", :type => "text"}/
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#sign-up-email.form-control.sign-up-email{:placeholder => "Email", :type => "email"}/
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#sign-up-password.form-control.sign-up-password{:placeholder => "Password", :type => "password"}/
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %span.errorMessage
+                    .form-group.user-sign-up-button-div
+                      .col-sm-offset-1.col-sm-10
+                        %button.btn.redButton.btn-block.user-signup{:type => "button"} Sign Up
+                .row.otpDiv{:style => "display:none;"}
+                  %form.form-horizontal
+                    .form-group.user-otp-text-div
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %input#sign-up-otp.form-control.sign-up-otp{:placeholder => "OTP", :type => "text"}/
+                    .form-group
+                      / <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                      .col-sm-offset-1.col-sm-10
+                        %span.errorMessage
+                    .form-group.user-otp-button-div
+                      .col-sm-offset-1.col-sm-10
+                        %button.btn.redButton.btn-block.user-otp-continue{:type => "button"} Continue

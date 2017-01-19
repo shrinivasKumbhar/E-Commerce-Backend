@@ -21,3 +21,42 @@
 
 en:
   hello: "Hello world"
+  #General
+  internal_server_error: "Internal server error, please try again"
+
+  data_retrieved_successfully: "Data retrieved successfully."
+
+  #OTP check
+  enter_mobile_no: "Please enter mobile number."
+  otp_sent_success: "OTP send successfully."
+  enter_otp: "Please enter OTP."
+  invalid_otp: "Invalid OTP."
+
+  #User signup
+  user_signup_success: "User signed up successfully."
+  user_signup_error: "Error occured while storing user."
+  enter_email_password: "Please enter email and password."
+  enter_first_name: "Please enter first name."
+  email_or_mobile_no_already_registered: "Entered email and mobile number already registered."
+
+
+  #user login
+  user_login_success: "User logged in successfully."
+  user_login_error: "Error occured while user login."
+  invalid_email_password: "Invalid username or password."
+  enter_username_password: "Please enter username and password."
+
+  #Product related
+  product_save_success: "Product saved successfully."
+  product_save_error: "Error occured while storing product."
+
+
+  #Cart Related
+  cart_save_success: "Cart updated successfully."
+  cart_save_error: "Error occured while storing cart."
+
+  #address 
+  society_not_present: "Please enter society."
+  address_not_present: "Please enter address."
+  address_save_success: "Address stored successfully."
+  address_save_error: "Error occured while storing address."

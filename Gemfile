@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -11,6 +11,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -50,3 +51,21 @@ gem 'bcrypt-ruby'
 
 #carrierwave to upload photos
 gem 'carrierwave'
+
+#active admin gem
+gem 'activeadmin', github: 'activeadmin'
+
+
+gem 'device'
+
+gem 'coffee-script-source', '1.8.0'
+
+#gem for swagger docs
+gem 'swagger-docs'
+
+#gem to use haml
+gem 'haml'
+
+gem 'httpi'
+
+gem 'rack-cors', :require => 'rack/cors'

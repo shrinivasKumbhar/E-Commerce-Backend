@@ -16,4 +16,8 @@
 //= require_tree .
 
 //= require bootstrap.min.js
-//=require socialapp.js
+//= require jquery.min.js
+//= require common/common-utils.js
+//= require common/constants.js
+//= require common/ajax-request.js
+//= require user/user-common.js

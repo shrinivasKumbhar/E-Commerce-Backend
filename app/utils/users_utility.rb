@@ -1,0 +1,2 @@
+class UsersUtility
+end

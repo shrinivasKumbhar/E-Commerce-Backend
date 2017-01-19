@@ -1,0 +1,70 @@
+= render partial: "partials/slider"
+%section.firstSection
+  .container.productsThumbnail
+    / <h1>Home</h1>
+    .row
+      .col-md-4.col-sm-4.col-xs-12
+        .panel.panel-default
+          .panel-heading SMALL PACK
+          .panel-body
+            %a{:href => "#"}
+              %img{:src => "assets/Couple Pack_2_1_thumb.png"}/
+            %h4 Sufficient for family of 2 people, delivered different fruit each day as per the package selection.
+            .form-group
+              %label{:for => "sel1"} Select Subscribetion:
+              %select.form-control.subscribtion{:name => "subscibtion"}
+                %option{:value => "0"} --Select One--
+                - if @small_packages.present?
+                  - @small_packages.each do |p|
+                    %option{:value => "#{p.id}"}
+                      = "#{p.days} Days Rs. #{p.price}"
+
+                -#%option{:value => "1"} 3 Days Rs.159.00
+                -#%option{:value => "2"} 6 Days Rs.299.00
+                -#%option{:value => "3"} 12 Days Rs.579.00
+            .subscribe
+              / Button trigger modal
+              %a.btn.redButton.btn-lg.combo-subscribe
+                Subscribe
+      .col-md-4.col-sm-4.col-xs-12
+        .panel.panel-default
+          .panel-heading MEDIUM PACK
+          .panel-body
+            %a{:href => "#"}
+              %img{:src => "assets/Family Pack_2_2_thumb.png"}/
+            %h4 Sufficient for family of 4 people, delivered different fruit each day as per the package selection.
+            .form-group
+              %label{:for => "sel1"} Select Subscription:
+              %select.form-control.subscribtion{:name => "subscibtion"}
+                %option{:value => "0"} --Select One--
+                - if @medium_packages.present?
+                  - @medium_packages.each do |p|
+                    %option{:value => "#{p.id}"}
+                      = "#{p.days} Days Rs. #{p.price}"
+            .subscribe
+              / Button trigger modal
+              %a.btn.redButton.btn-lg.combo-subscribe
+                Subscribe
+      .col-md-4.col-sm-4.col-xs-12
+        .panel.panel-default
+          .panel-heading LARGE PACK
+          .panel-body
+            %a{:href => "#"}
+              %img{:src => "assets/Jumbo Pack_2_3_thumb.png"}/  
+            %h4 
+              Sufficient for 
+              family of 6 people, delivered different fruit each day as per the package selection.ssssss
+              = "dddddd#{@current_user}"
+              
+            .form-group
+              %label{:for => "sel1"} Select Subscription:
+              %select.form-control.subscribtion{:name => "subscibtion"}
+                %option{:value => "0"} --Select One--
+                - if @large_packages.present?
+                  - @large_packages.each do |p|
+                    %option{:value => "#{p.id}"}
+                      = "#{p.days} Days Rs. #{p.price}"
+            .subscribe
+              / Button trigger modal
+              %a.btn.redButton.btn-lg.combo-subscribe
+                Subscribe
