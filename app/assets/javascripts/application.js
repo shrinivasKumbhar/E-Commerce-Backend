@@ -21,3 +21,6 @@
 //= require common/constants.js
 //= require common/ajax-request.js
 //= require user/user-common.js
+//= require user/user-address.js
+//= require main/address.js
+//= require docload.js

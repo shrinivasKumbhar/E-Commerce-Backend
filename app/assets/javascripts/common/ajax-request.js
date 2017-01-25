@@ -17,7 +17,7 @@ function makeAjaxRequest(url,method_type,jParams){
 function makeAjaxRequestGetMethod(url,method_type){
 	console.log('Base Url :'+url+' Method Type :'+method_type);
 	$.ajax({
-		url : 'http://192.168.0.108:3005/api/v1/packages/get-packages',
+		url : '/api/v1/packages/get-packages',
 		type : 'GET',
 		success : function(data){
 			ajaxResponceData();
@@ -33,7 +33,7 @@ function makeAjaxRequestGetMethod(url,method_type){
 function makeAjaxRequestForUserSignUp(url,method_type,jParams){
 	console.log('User Sign Up Method :Base Url :'+url+' Method Type :'+method_type+" JParams :"+jParams);
 	$.ajax({
-		url : 'http://192.168.0.108:3005/api/v1/users/signup',
+		url : '/api/v1/users/signup',
 		type : 'POST',
 		data : jParams,
 		success : function(data){
@@ -51,6 +51,11 @@ function makeAjaxRequestForUserSignUp(url,method_type,jParams){
 					// if(result_type){
 						// $('.user-sign-up-modal').modal('hide');
 					// }
+					localStorage.setItem("user-email", data.data.email);
+				localStorage.setItem("Access-Token", data.data.access_token);
+				console.log("localStorage.setIAccess-Token :"+localStorage.getItem("Access-Token"));
+				console.log("Email :"+localStorage.getItem("user-email"));
+					
 				}else{
 					$(".signUpDiv").hide();
 					$(".loginDiv").show();
@@ -68,17 +73,19 @@ function makeAjaxRequestForUserSignUp(url,method_type,jParams){
 function makeAjaxRequestForUserLogin(url,method_type, jParams){
 	console.log('User Login Method :Base Url :'+url+' Method Type :'+method_type+" JParams :"+jParams);
 	$.ajax({
-		url : 'http://192.168.0.108:3005/api/v1/users/login',
+		url : '/api/v1/users/login',
 		type : 'POST',
 		data : jParams,
 		success : function(data){
-			console.log(data)
+			console.log(data);
 			console.log("Data :"+JSON.stringify(data));
 			console.log("Data :"+JSON.stringify(data.data));
 			console.log("Dataaccesstok :"+JSON.stringify(data.data.access_token));
 			if (data.success) {
-				localStorage.setItem("Access-Token", data.data.access_token)
+				localStorage.setItem("user-email", data.data.email);
+				localStorage.setItem("Access-Token", data.data.access_token);
 				console.log("localStorage.setIAccess-Token :"+localStorage.getItem("Access-Token"));
+				console.log("Email :"+localStorage.getItem("user-email"));
 			} else {
 				console.log("elseeeeeee");
 			}
@@ -113,5 +120,46 @@ function makeAjaxRequestForOTP(url,method_type,jParams){
 		//	alert(data);
 		}
 	});
+	
+}
+
+function getSocitiesFromArea(url, method_type, area_id) {
+	$.ajax({
+		url : '/api/v1/areas/get_societies?area_id='+area_id,
+		type : 'GET',
+		data : "",
+		success : function(data){
+			
+			if(data.success){	
+			}else{
+				$(".errorMessage").text(data.message);
+				$(".errorMessage").css("color","red");
+			}	
+			console.log("Data :"+JSON.stringify(data));
+		},
+		error : function(data){
+		//	alert(data);
+		}
+	});	
+}
+
+function saveNewAddress(url, method_type, params) {
+	$.ajax({
+		url : '/api/v1/areas/save,
+		type : 'POST',
+		data : params,
+		success : function(data){
+			alert("data"+ data);
+			if(data.success){	
+			}else{
+				$(".errorMessage").text(data.message);
+				$(".errorMessage").css("color","red");
+			}	
+			console.log("Data :"+JSON.stringify(data));
+		},
+		error : function(data){
+		//	alert(data);
+		}
+	});	
 }
 

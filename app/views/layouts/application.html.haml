@@ -47,12 +47,11 @@
                       CONTACT US
             %li
               %a{:"data-target" => "#loginModal", "data-toggle" => "modal"}
-                %span.user-login-menu.login-signup LOG IN
-                \/
-                %span.user-sign-up-menu.login-signup SIGN UP
+                %span.login-signup-class.user-login-menu.login-signup LOG IN /
+      
+                %span.login-signup-class.user-sign-up-menu.login-signup SIGN UP
             %li
-              %a.user-logout-menu.hidden{:href => "#"} LOGOUT
-
+              %span.logout-class.user-logout-menu LOGOUT
 
     = yield
     #loginModal.modal.fade.bs-example-modal-sm.text-center.loginModal{"aria-labelledby" => "myModalLabel", "data-backdrop" => "static", "data-keyboard" => "false", :role => "dialog", :tabindex => "-1"}

@@ -1,3 +1,3 @@
 class SubscriptionPackage < ActiveRecord::Base
-  has_many :packages
+  belongs_to :subscription_pack
 end

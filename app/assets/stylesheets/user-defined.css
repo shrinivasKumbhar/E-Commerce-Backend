@@ -1,0 +1,27 @@
+@media screen and (max-width: 600px) {
+  .title_message {
+	visibility: hidden;
+	clear: both;
+	float: left;
+	margin: 10px auto 5px 20px;
+	width: 28%;
+	display: none;
+  }
+}
+
+.circle
+    {
+    width:20px;
+    height:20px;
+    border-radius:50px;
+    font-size:20px;
+    color:black;
+    line-height:50px;
+    text-align:center;
+    border:solid 1px;
+    border-color:blue;
+    
+    }
+.address-div-align{
+	text-align:center;
+}

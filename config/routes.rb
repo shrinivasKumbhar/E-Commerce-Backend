@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :users
   resources :products
+  resources :checkouts
   ActiveAdmin.routes(self)
   scope '/api' do
     scope '/v1' do
@@ -24,6 +25,11 @@ Rails.application.routes.draw do
       end
       scope 'packages' do
         get '/get-packages' => 'packages#get_all_packages'
+        get '/get-package' => 'packages#get_package_detail'
+      end
+      scope 'areas' do
+        get '/get_societies' => 'areas#get_societies'
+        
       end
     end
   end

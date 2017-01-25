@@ -49,7 +49,9 @@ en:
   #Product related
   product_save_success: "Product saved successfully."
   product_save_error: "Error occured while storing product."
-
+  
+  #Package
+  package_not_present: "Package not present."
 
   #Cart Related
   cart_save_success: "Cart updated successfully."

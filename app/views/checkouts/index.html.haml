@@ -1,0 +1,130 @@
+.container-fluid.sliderContainer{:style => "height:140px;"}
+  / <img src="img/logo_banner.png">
+  #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+    / Indicators
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+      %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+      %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+    / Wrapper for slides
+    .carousel-inner{:role => "listbox", :style => "height:100px;"}
+      .item.active
+        %img{:alt => "", :src => "assets/logo_banner.png"}/
+        .carousel-caption
+      .item
+        %img{:alt => "", :src => "assets/logo_banner.png"}/
+        .carousel-caption
+    / Controls
+    -#%a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+      %span.sr-only Previous
+    -#%a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+      %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+      %span.sr-only Next
+.container-fluid
+  %section.firstSection
+    .row
+      .col-md-2.col-sm-2.col-xs-12
+        .col-md-4
+        .col-md-8
+          User Address  
+    .row
+      .col-md-1
+      .col-md-4.col-sm-2.col-xs-12.address-div-align
+        .col-md-12
+          .panel.panel-default
+            .panel-body
+              %div{:"data-target" => "#deliveryAddressModal", "data-toggle" => "modal"}
+                .form-group.pull-center
+                  %span.circle.add-address +
+                  %br/
+                  %span.add-address Add Address
+      -#.col-md-2.col-sm-2.col-xs-12.address-div-align
+        .col-md-12
+          .panel.panel-default
+            .panel-body
+              .form-group.pull-center
+                %span.circle.add-address +
+                %br/
+                %span.add-address Add Address
+      .col-md-4.col-sm-4.col-xs-12.pull-right
+        .col-md-12
+          .panel.panel-default
+            .panel-heading SMALL PACK
+            .panel-body
+              .form-group{:style => "text-align:left;"}
+                .col-md-5
+                  %span Pack Name :
+                .col-md-7
+                  %span#subscribe-package-name.subscribe-package-name 3 Days Rs.159
+                .col-md-5
+                  %span Price :
+                .col-md-7
+                  %span#subscribe-package-price.subscribe-package-price 3 Days Rs.159
+                .col-md-4
+                  Coupon :
+                .col-md-4
+                  %span
+                    %input#subscribe-package-coupon-code.subscribe-package-coupon-code.form-control{:type => "text"}/
+                .col-md-4
+                  %span
+                    %input#subscribe-package-coupon-code-apply.subscribe-package-coupon-code-apply.form-control{:type => "button", :value => "Apply"}/
+                .col-md-12
+                  .form-group
+                    .row
+                      %a.btn.redButton.btn-lg.combo-subscribe
+                        Subscribe
+
+#deliveryAddressModal.modal.deliveryAddressModal.fade.bs-example-modal-sm.text-center{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"} X
+        %h3 Address
+      .modal-body
+        .row
+          .col-md-12.col-sm-12.col-xs-12
+            .panel-default
+              / <div class="panel-body">
+              %form.form-horizontal
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputFullName"} Full Name :
+                  .col-sm-8
+                    %input#address_full_name.form-control.full-name{:name => "fullName", :placeholder => "Full Name(Ex. Tesing Testing)", :type => "text"}/
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputAddress1"} Area :
+                  .col-sm-8
+                    %select#address_area.area.form-control
+                      %option{:value => "0"} -Select-
+                      - if @areas.present?
+                        - @areas.each do |area|
+                          %option{:value => "#{area.id}"} "#{area.name}"
+                      %option{:value => "-1"} Other
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputAddress2"} Society :
+                  .col-sm-8
+                    %select#address_society.society.form-control
+                      %option{:value => "0"} -Select-
+                      %option{:value => "1"} Wardhaman gardan
+                      %option{:value => "2"} Wonder city
+                      %option{:value => "3"} Kanchan nagri
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputAddress1"} Address 1 :
+                  .col-md-8
+                    %input#delivery_address1.form-control.delivery-address1{:placeholder => "Address 1", :type => "text"}/
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputAddress2"} Address 2 :
+                  .col-sm-8
+                    %input#delivery_address2.form-control.delivery-address2{:placeholder => "Address 2", :type => "text"}/
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputPincode"} Pincode :
+                  .col-sm-8
+                    %input#delivery_pincode.form-control.delivery-pincode{:placeholder => "Pincode", :type => "text"}/
+                .form-group
+                  %label.col-sm-4.control-label{:for => "inputMobileNo"} Contact No. :
+                  .col-sm-8
+                    %input#address_mobile_number.form-control.mobile-number{:placeholder => "Mobile No.", :type => "text"}/
+                .form-group
+                  .col-sm-offset-4.col-sm-8
+                    %button#delivery_address_button.btn.redButton.btn-block.delivery-address-button{:type => "button"} Continue
+          / </div>

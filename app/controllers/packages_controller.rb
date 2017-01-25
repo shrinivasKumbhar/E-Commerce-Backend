@@ -9,4 +9,14 @@ class PackagesController < ApplicationController
     end
     Rails.logger.info{"#{__FILE__}: #{__LINE__} get_all_packages start"}
   end
+  
+  def get_package_detail
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} get_package_detail start"}
+    begin
+      render :json => PackageService.new.get_package(params)
+    rescue => e
+      Rails.logger.info{"#{__FILE__}: #{__LINE__} Exception : #{e.message}"}
+    end
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} get_package_detail end"}
+  end
 end

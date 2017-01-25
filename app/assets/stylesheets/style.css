@@ -1,15 +1,15 @@
 @font-face {
   font-family: latoRegular;
-  src: url(../fonts/Lato-Regular.ttf); }
+  src: url(fonts/Lato-Regular.ttf); }
 @font-face {
   font-family: latoBold;
-  src: url(../fonts/Lato-Bold.ttf); }
+  src: url(fonts/Lato-Bold.ttf); }
 @font-face {
   font-family: merriweatherRegular;
-  src: url(../fonts/Merriweather-Regular.ttf); }
+  src: url(fonts/Merriweather-Regular.ttf); }
 @font-face {
   font-family: merriweatherBold;
-  src: url(../fonts/Merriweather-Bold.ttf); }
+  src: url(fonts/Merriweather-Bold.ttf); }
 /**********Common Css****************/
 .btn {
   border-radius: 0px; }

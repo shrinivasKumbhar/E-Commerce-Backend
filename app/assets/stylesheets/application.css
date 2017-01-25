@@ -17,3 +17,4 @@
 *= require bootstrap.min
 *= require style
 *= require font-awesome.min
+*= require user-defined

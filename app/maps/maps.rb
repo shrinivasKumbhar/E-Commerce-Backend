@@ -35,11 +35,30 @@ class Maps
     Rails.logger.info{"#{__FILE__}: #{__LINE__} packs_map end"}
     return pack_map
   end
+  
+  def self.package_map(package)
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} package_map start #{package.inspect}"}
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} package_map start #{package.subscription_pack.inspect}"}
+    pack = SubscriptionPack.find_by_id(package.subscription_packs_id)
+    map = {:pack_id => pack.id, :pack_name => pack.name, :package_id => package.id,
+          :days => package.days, :price => package.price}
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} package_map end"}
+    return map
+  end
 
   def self.product_map(product)
     Rails.logger.info{"#{__FILE__}: #{__LINE__} product_map start"}
     map = {:product_id => product.id, :product_name => product.name, :description => product.description,
           :display_name => product.display_name, :price => product.price}
     Rails.logger.info{"#{__FILE__}: #{__LINE__} product_map end"}
+    return map
+  end
+  
+  def self.society_map(society)
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} society_map start"}
+    map = {:society_id => society.id, :area_id => society.area_id, :name => society.name, 
+          :description => society.description }
+    Rails.logger.info{"#{__FILE__}: #{__LINE__} society_map end"}
+    return map
   end
 end
